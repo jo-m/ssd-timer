@@ -29,3 +29,8 @@ Build and install in gopath:
     git clone git@github.com:jo-m/ssd-timer.git $GOPATH/src/github.com/jo-m/ssd-timer
     cd $GOPATH/src/github.com/jo-m/ssd-timer
     go get
+
+## Deploy to heroku
+    heroku apps:create ssd-timer -b http://github.com/kr/heroku-buildpack-go.git; \
+    heroku config:add --app ssd-timer ADMIN_PASSWORD=<password>; \
+    git push heroku master
