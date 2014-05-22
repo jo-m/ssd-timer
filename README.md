@@ -23,3 +23,9 @@ Just run using `go run`:
     make run
     # or
     go run *.go -p your_secret
+
+Build and install in gopath:
+
+    git clone git@github.com:jo-m/ssd-timer.git $GOPATH/src/github.com/jo-m/ssd-timer
+    cd $GOPATH/src/github.com/jo-m/ssd-timer
+    go get
