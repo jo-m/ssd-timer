@@ -93,7 +93,7 @@ angular.module('app', [])
             // are we in the pause?
             if($scope.calculatedState.delta < $scope.timer.Config.PauseLength / 1000000) {
                 $scope.calculatedState.pause = true
-                // $scope.calculatedState.delta = $scope.timer.Config.RoundLength / 1000000
+                $scope.calculatedState.round++
             } else {
                 $scope.calculatedState.pause = false
                 $scope.calculatedState.delta -= $scope.timer.Config.PauseLength / 1000000
