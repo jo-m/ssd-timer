@@ -31,6 +31,11 @@ Build and install in gopath:
     go get
 
 ## Deploy to heroku
-    heroku apps:create ssd-timer -b http://github.com/kr/heroku-buildpack-go.git; \
+    heroku apps:create ssd-timer; \
+    heroku labs:enable --app ssd-timer websockets; \
+    heroku config:add --app ssd-timer BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git; \
     heroku config:add --app ssd-timer ADMIN_PASSWORD=<password>; \
     git push heroku master
+
+## Check logs
+    heroku logs --app ssd-timer --tail

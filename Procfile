@@ -1,1 +1,1 @@
-web: ./ssd-timer -p="$ADMIN_PASSWORD" -a="$HOST:$PORT"
+web: ssd-timer -p="$ADMIN_PASSWORD" -a="$HOST:$PORT"
