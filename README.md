@@ -7,6 +7,13 @@ After starting the server, everyone accessing the root URL will see the same syn
 
 This way you can let the timer run from on a Laptop connected to a projector, and remote-control the timer with your smartphone or from another computer.
 
+## Demo
+
+* Visit a demo here: <http://ssd-timer.herokuapp.com/>
+* [Admin Interface](http://ssd-timer.herokuapp.com/admin) (password: `abc123123`)
+
+## Build and Run
+
 Build:
 
     go build
