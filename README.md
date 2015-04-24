@@ -1,7 +1,7 @@
 # Startup Speeddating Ticker
 
 This is the Ticker used for the EC Startup Speeddating.
-It is written in [Go](http://golang.org/) and uses Wecksockets for real-Time communication.
+It is written in [Go](http://golang.org/) and uses Websockets for real-Time communication.
 
 After starting the server, everyone accessing the root URL will see the same synchronized ticker. Type `/admin` in the address bar to get to the admin interface after entering the password.
 
