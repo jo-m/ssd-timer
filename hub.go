@@ -102,7 +102,7 @@ func (h *hub) executeAdminCommand(cmd string) {
 	case "run":
 		if h.timer.State.TimerPaused {
 			h.timer.State.TimerPaused = false
-			h.timer.State.TimerStartAt = h.timer.State.TimerStartAt.Add(time.Now().Sub(h.timer.State.TimerPausedAt))
+			h.timer.State.TimerStartAt = h.timer.State.TimerStartAt.Add(time.Since(h.timer.State.TimerPausedAt))
 		}
 	case "reset":
 		h.timer = defaultTimer

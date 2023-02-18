@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/gorilla/websocket"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gorilla/websocket"
 )
 
 func (c *connection) clientReadLoop() {
@@ -51,7 +52,7 @@ func (c *connection) clientWriteLoop() {
 
 func serveTimerWs(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, "Method not allowed", 405)
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 	ws, err := upgrader.Upgrade(w, r, nil)

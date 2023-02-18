@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/gorilla/websocket"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gorilla/websocket"
 )
 
 func (c *connection) adminReadLoop() {
@@ -52,13 +53,13 @@ func (c *connection) adminWriteLoop() {
 
 func serveAdminWs(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, "Method not allowed", 405)
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
 	cookie, _ := r.Cookie(cookieName)
 	if cookie == nil || cookie.Value != *password {
-		http.Error(w, "Login first!", 401)
+		http.Error(w, "Login first!", http.StatusUnauthorized)
 		return
 	}
 

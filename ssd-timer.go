@@ -37,7 +37,7 @@ func serveTimer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method != "GET" {
-		http.Error(w, "Method nod allowed", 405)
+		http.Error(w, "Method nod allowed", http.StatusMethodNotAllowed)
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -46,12 +46,12 @@ func serveTimer(w http.ResponseWriter, r *http.Request) {
 
 func serveAdmin(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, "Method nod allowed", 405)
+		http.Error(w, "Method nod allowed", http.StatusMethodNotAllowed)
 		return
 	}
 	cookie, _ := r.Cookie(cookieName)
 	if cookie == nil || cookie.Value != *password {
-		http.Redirect(w, r, "login", 307)
+		http.Redirect(w, r, "login", http.StatusTemporaryRedirect)
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -60,7 +60,7 @@ func serveAdmin(w http.ResponseWriter, r *http.Request) {
 
 func serveLogin(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, "Method nod allowed", 405)
+		http.Error(w, "Method nod allowed", http.StatusMethodNotAllowed)
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -80,7 +80,7 @@ func getArgs() {
 	flag.Parse()
 
 	if len(*password) == 0 {
-		fmt.Fprintf(os.Stderr, "Required flag: -p\n", os.Args[0])
+		fmt.Fprint(os.Stderr, "Required flag: -p\n", os.Args[0])
 		usage()
 	}
 }
