@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// holds the static config for a timer
+// TimerConfig holds the static config for a timer.
 type TimerConfig struct {
 	NumRounds      int
 	PauseLength    time.Duration
@@ -16,7 +16,7 @@ type TimerConfig struct {
 	NotStartedText string
 }
 
-// holds the current global state for the timer.
+// TimerState holds the current global state for the timer.
 // These values are only changed when pressing pause, run etc.
 type TimerState struct {
 	TimerStartAt  time.Time

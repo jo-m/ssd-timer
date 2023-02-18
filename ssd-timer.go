@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -23,7 +22,7 @@ var loginTempl *template.Template = parseTemplate("admin", "tmpl/login.html")
 
 // parse template using delimiter '[[', ']]'
 func parseTemplate(name, fname string) *template.Template {
-	f, err := ioutil.ReadFile(fname)
+	f, err := os.ReadFile(fname)
 	if err != nil {
 		panic("template not found!")
 	}
