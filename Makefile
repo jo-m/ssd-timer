@@ -1,4 +1,4 @@
-.PHONY: all run lint check format bench
+.PHONY: all run lint check format
 
 all: $(wildcard *.go)
 	go build
@@ -16,6 +16,3 @@ check: lint test
 
 format:
 	gofmt -w -s .
-
-bench:
-	go test -v -bench=. ./...
