@@ -1,14 +1,10 @@
-.PHONY: all run test lint check format bench
+.PHONY: all run lint check format bench
 
 all: $(wildcard *.go)
 	go build
 
 run: $(wildcard *.go)
 	go run $(wildcard *.go) -a localhost:8080 -p abc123
-
-test:
-	# Tags bounds,noasm,safe are added for safety checks in Gonum.
-	go test -count 1 -tags bounds,noasm,safe -race -v ./...
 
 lint:
 	gofmt -l .; test -z "$$(gofmt -l .)"
