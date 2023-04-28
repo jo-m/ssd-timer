@@ -7,10 +7,7 @@ After starting the server, everyone accessing the root URL will see the same syn
 
 This way you can let the timer run from on a Laptop connected to a projector, and remote-control the timer with your smartphone or from another computer.
 
-## Demo
-
-* Visit a demo here: <http://ssd-timer.herokuapp.com/>
-* [Admin Interface](http://ssd-timer.herokuapp.com/admin) (password: `abc123123`)
+![Screenshot of timer, and admin console](screenshot.png)
 
 ## Build and Run
 
@@ -18,7 +15,7 @@ Build:
 
     go build
     # and run
-    ./ssd-ticker -p your_secret
+    ./ssd-timer -p your_secret
 
 Run using `foreman` (env vars can be edited in `.env`):
 
@@ -29,7 +26,7 @@ Just run using `go run`:
 
     make run
     # or
-    go run *.go -p your_secret
+    go run ./ -p your_secret
 
 Build and install in gopath:
 
